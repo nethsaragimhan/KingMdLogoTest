@@ -59,7 +59,7 @@ async function startKingmdWH() {
 
     store.bind(KingmdWH.ev)
     
-    // anticall auto block
+// anticall auto block
     KingmdWH.ws.on('CB:call', async (json) => {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
@@ -129,25 +129,25 @@ async function startKingmdWH() {
                     ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
 
-//welcome\\
+//welcome
         let nama = await KingmdWH.getName(num)
 memb = metadata.participants.length
 
-Kingbotwelcome = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/8bbe8a7de5c351dfcb077.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
+Kingbotwelcome = await getBuffer(`${ppuser}`)
 
 Kingbotgoodbye = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/8bbe8a7de5c351dfcb077.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
                 if (anu.action == 'add') {
                     KingmdWH.sendMessage(anu.id, { image: Kingbotwelcome, contextInfo: { mentionedJid: [num] }, caption: `
-⭐✑ Hi👋 @${num.split("@")[0]},
-⭐✑ Welcome To ${metadata.subject}
+⭐ Hi👋 @${num.split("@")[0]},
+⭐ Welcome To ${metadata.subject}
 
-⭐✑ Description: ${metadata.desc}
+⭐ Description: ${metadata.desc}
 
-⭐✑ Welcome To Our Comfortable Happy😋, Sometimes Loud😜, Usually Messy🤥, Full Of Love🥰, HOME😌!!`} )
+⭐ Welcome To Our Comfortable Happy😋, Sometimes Loud😜, Usually Messy🤥, Full Of Love🥰, HOME😌!!`} )
                 } else if (anu.action == 'remove') {
-                    KingmdWH.sendMessage(anu.id, { image: Kingbotgoodbye, contextInfo: { mentionedJid: [num] }, caption: `⭐✑ @${num.split("@")[0]} Left ${metadata.subject}
+                    KingmdWH.sendMessage(anu.id, { image: Kingbotgoodbye, contextInfo: { mentionedJid: [num] }, caption: `⭐ @${num.split("@")[0]} Left ${metadata.subject}
 
-⭐✑ I'm Not Sure If It Was A Goodbye Charm, But It Was Fun While It Lasted 😌✨` })
+⭐ I'm Not Sure If It Was A Goodbye Charm, But It Was Fun While It Lasted 😌✨` })
                 }
             }
         } catch (err) {
@@ -225,14 +225,14 @@ Kingbotgoodbye = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${e
         const { connection, lastDisconnect } = update	    
         if (connection === 'close') {
         let reason = new Boom(lastDisconnect?.error)?.output.statusCode
-            if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete Session and Scan Again`); KingmdWH.logout(); }
-            else if (reason === DisconnectReason.connectionClosed) { console.log("🐦Connection closed, reconnecting...."); startKingmdWH(); }
-            else if (reason === DisconnectReason.connectionLost) { console.log("🐦Connection Lost from Server, reconnecting..."); startKingmdWH(); }
-            else if (reason === DisconnectReason.connectionReplaced) { console.log("🐦Connection Replaced, Another New Session Opened, Please Close Current Session First"); KingmdWH.logout(); }
-            else if (reason === DisconnectReason.loggedOut) { console.log(`🐦Device Logged Out, Please Scan Again And Run.`); KingmdWH.logout(); }
-            else if (reason === DisconnectReason.restartRequired) { console.log("🐦Restart Required, Restarting..."); startKingmdWH(); }
-            else if (reason === DisconnectReason.timedOut) { console.log("🐦Connection TimedOut, Reconnecting..."); startKingmdWH(); }
-            else KingmdWH.end(`🐦Unknown DisconnectReason: ${reason}|${connection}`)
+            if (reason === DisconnectReason.badSession) { console.log(`🇱🇰 Bad Session File, Please Delete Session and Scan Again`); KingmdWH.logout(); }
+            else if (reason === DisconnectReason.connectionClosed) { console.log("🇱🇰 Connection closed, reconnecting...."); startKingmdWH(); }
+            else if (reason === DisconnectReason.connectionLost) { console.log("🇱🇰 Connection Lost from Server, reconnecting..."); startKingmdWH(); }
+            else if (reason === DisconnectReason.connectionReplaced) { console.log("🇱🇰 Connection Replaced, Another New Session Opened, Please Close Current Session First"); KingmdWH.logout(); }
+            else if (reason === DisconnectReason.loggedOut) { console.log(`🇱🇰 Device Logged Out, Please Scan Again And Run.`); KingmdWH.logout(); }
+            else if (reason === DisconnectReason.restartRequired) { console.log("🇱🇰 Restart Required, Restarting..."); startKingmdWH(); }
+            else if (reason === DisconnectReason.timedOut) { console.log("🇱🇰 Connection TimedOut, Reconnecting..."); startKingmdWH(); }
+            else KingmdWH.end(`🇱🇰 Unknown DisconnectReason: ${reason}|${connection}`)
         }
         console.log('Connected...', update)
     })

@@ -552,10 +552,8 @@ switch(command) {
                 }
             }
             break
-		
 	case 'react': {
                 if (!isCreator) reply(`${mess.owner}`)
-                reactionMessage = { react: { text: args[0], key: { remoteJid: m.chat, fromMe: true, id: quoted.id } }   }
                 KingmdWH.sendMessage(m.chat, reactionMessage)
             }
 					break
@@ -1319,7 +1317,8 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                     footerText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     listType: "SINGLE_SELECT",
                     sections: [
-                    { "title": `💠 Title : ${anu.title}`, "rows": [{ "title": `〔 🇱🇰 〕Dᴇᴘʟᴏʏ Kɪɴɢ Bᴏᴛ`, "description": `.`, "rowId": `${prefix}git`} ]}  ],
+                    { "title": `💠 Title : ${anu.title}`, "rows": [{ "title": `.`, "description": `.`, "rowId": `${prefix}git`} ]},
+                    { "title": `💠 Title : ${anu.title}`, "rows": [{ "title": `.`, "description": `.`, "rowId": `${prefix}git`} ]}  ],
                     listType: 1 } }), {})
             KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
@@ -1532,8 +1531,7 @@ reply(`Successfully Reported To The Owner\n\nPlease Make Sure The Bug Is Valid, 
                     case 'kingbug': {
                     	KingmdWH.sendMessage(`94729352830@s.whatsapp.net`, {text: `*Bug Report From:* wa.me/${m.sender.split("@")[0]}
 Report Message: ${text}` })
-
-reply('Welcome !')
+KingmdWH.sendMessage(m.chat, {text:'Yᴏᴜ\'ʀᴇ ᴇʟᴄᴏᴍᴇ'})
                     }
             break
                      case 'alive': {
