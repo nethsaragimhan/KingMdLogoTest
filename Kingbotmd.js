@@ -15,7 +15,6 @@ const { Primbon } = require('scrape-primbon')
 const primbon = new Primbon()
 const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom } = require('./lib/myfunc')
 const whitehackers = require('xfarr-api')
-const maker = require('mumaker')
 
 //rpg function\\
 const { addInventoriDarah, cekDuluJoinAdaApaKagaDiJson, addDarah, kurangDarah, getDarah }  = require('./storage/user/darah.js')
@@ -1305,39 +1304,25 @@ break
             }
             break
             case 'audio': {
-                if (!text) return reply(`Example : .song lelena`)
-                let yts = require("yt-search")
-                let search = await yts(text)
-                let kingbotsearch = search.videos[0]
-                let buttons = [
-                    {buttonId: `hsong ${kingbotsearch.url}`, buttonText: {displayText: '🔥 HIGH QUALITY 🔥'}, type: 1},
-                    {buttonId: `msong  ${kingbotsearch.url}`, buttonText: {displayText: '🎲 MEDIUM QUALITY 🎲'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: kingbotsearch.thumbnail },
-                    caption: `
-╭──────────────◉
-│    🔥 ᴋɪɴɢ ʙᴏᴛ - ᴍᴅ ᴠᴇʀꜱɪᴏɴ 🔥
-╰──────────────◉
+           if (!text) return reply(`Example : .song lelena`)
+           let yts = require("yt-search")
+           let search = await yts(text)
+           let kingbotsearch = search.videos[0]
 
-      *📥 𝚂𝙾𝙽𝙶 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳𝙴𝚁 📥*
-   
-╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶◉
-│▣ ᴛɪᴛʟᴇ ➢ ${kingbotsearch.title}
-│▣ ᴇxᴛ ➢ Search
-│▣ ɪᴅ ➢ ${kingbotsearch.videoId}
-│▣ ᴅᴜʀᴀᴛɪᴏɴ ➢ ${kingbotsearch.timestamp}
-│▣ ᴠɪᴇᴡᴇꜱ ➢ ${kingbotsearch.views}
-│▣ ᴜᴘʟᴏᴀᴅᴇᴅ ᴏɴ ➢ ${kingbotsearch.ago}
-│▣ ᴜʀʟ ➢ ${kingbotsearch.url}
-│
-│🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁
-╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶◉`,
-                    footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
-                    buttons: buttons,
-                    headerType: 4
-                }
-                KingmdWH.sendMessage(m.chat, buttonMessage, { quoted: m })
+
+Kingbotmenu=`\`\`\`Test Song Rows\`\`\`\n\n\n*</> Coded By White Hackers </>*`
+let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                listMessage:{
+                    title: `👋ʜɪ ᴅᴇᴀʀ ${pushname}`,
+                    description: Kingbotmenu,
+                    buttonText: "ᴛᴀᴘ ʜᴇʀᴇ ᴛᴏ ꜱᴇʟᴇᴄᴛ ᴍᴇɴᴜ",
+                    footerText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
+                    listType: "SINGLE_SELECT",
+                    sections: [
+                    { "title": "•━━•━━•━━•━━•━━•━━•━━•━━•━━•━━•", "rows": [{ "title": "〔 🇱🇰 〕Dᴇᴘʟᴏʏ Kɪɴɢ Bᴏᴛ", "description": "Displays The Github link for deploy KING-BOT-MD", "rowId": `${prefix}git`} ]},
+					{ "title": "•━━•━━•━━•━━•━━•━━•━━•━━•━━•━━•", "rows": [{ "title": "〔 ⚘ 〕Sᴘᴇᴄɪᴀʟ Tʜᴀɴᴋꜱ Tᴏ", "description": "Displays The List Of Credit Of The Bot !!", "rowId": `${prefix}tqtt`} ]}    ],
+                    listType: 1 } }), {})
+            KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
               break
                         case 'video':  {
