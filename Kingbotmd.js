@@ -1319,8 +1319,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                     footerText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     listType: "SINGLE_SELECT",
                     sections: [
-                    { "title": "•━━•━━•━━•━━•━━•━━•━━•━━•━━•━━•", "rows": [{ "title": "〔 🇱🇰 〕Dᴇᴘʟᴏʏ Kɪɴɢ Bᴏᴛ", "description": "Displays The Github link for deploy KING-BOT-MD", "rowId": `${prefix}git`} ]},
-					{ "title": "•━━•━━•━━•━━•━━•━━•━━•━━•━━•━━•", "rows": [{ "title": "〔 ⚘ 〕Sᴘᴇᴄɪᴀʟ Tʜᴀɴᴋꜱ Tᴏ", "description": "Displays The List Of Credit Of The Bot !!", "rowId": `${prefix}tqtt`} ]}    ],
+                    { "title": `💠 Title : ${anu.title}`, "rows": [{ "title": `〔 🇱🇰 〕Dᴇᴘʟᴏʏ Kɪɴɢ Bᴏᴛ`, "description": `.`, "rowId": `${prefix}git`} ]}  ],
                     listType: 1 } }), {})
             KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
